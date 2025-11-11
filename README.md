@@ -2,6 +2,12 @@
 
 このプロジェクトは、git submodule と git subtree の運用方法を実践的に比較するためのデモです。
 
+## 📦 リポジトリ
+
+- **ルートリポジトリ**: このリポジトリ
+- **Submodule App** (Python Lambda): [monokaai/demo-submodule-app](https://github.com/monokaai/demo-submodule-app)
+- **Subtree App** (TypeScript Lambda): [monokaai/demo-subtree-app](https://github.com/monokaai/demo-subtree-app)
+
 ## プロジェクト構成
 
 ```
