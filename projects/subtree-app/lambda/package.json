@@ -1,0 +1,20 @@
+{
+  "name": "subtree-app-lambda",
+  "version": "1.0.0",
+  "description": "TypeScript Lambda managed via git subtree",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node index.js"
+  },
+  "keywords": ["lambda", "typescript", "git-subtree"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.145"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.6"
+  }
+}
