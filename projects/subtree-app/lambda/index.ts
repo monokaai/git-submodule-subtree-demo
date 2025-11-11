@@ -25,7 +25,7 @@ export const handler = async (
     logInfo('Subtree App (TypeScript) Lambda started');
 
     // イベント情報を取得
-    const requestId = context.requestId || 'local';
+    const requestId = context.awsRequestId || 'local';
 
     // レスポンスボディを構築
     const responseBody = {
@@ -64,7 +64,7 @@ if (require.main === module) {
   } as any;
 
   const mockContext = {
-    requestId: 'test-request-456',
+    callbackWaitsForEmptyEventLoop: false,
     functionName: 'subtree-app-lambda',
     functionVersion: '$LATEST',
     invokedFunctionArn: 'arn:aws:lambda:us-east-1:123456789012:function:test',

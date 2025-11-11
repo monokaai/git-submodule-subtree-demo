@@ -14,7 +14,11 @@
     "format": "prettier --write \"**/*.{ts,json,md}\"",
     "type-check": "tsc --noEmit"
   },
-  "keywords": ["lambda", "typescript", "git-subtree"],
+  "keywords": [
+    "lambda",
+    "typescript",
+    "git-subtree"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -30,6 +34,7 @@
     "prettier": "^3.1.1",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3"
   },
   "engines": {
