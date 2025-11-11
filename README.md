@@ -37,10 +37,74 @@ git_submodule_subtree_demo/  (ルートリポジトリ)
 
 ## ドキュメント
 
-- [実行コマンドログ](docs/commands.md) - 全コマンドの記録
-- [ワークフロー図](docs/workflow.md) - Mermaid図での可視化
-- [比較レポート](docs/comparison.md) - submodule vs subtree の比較
+- 📝 [実行コマンドログ](docs/commands.md) - 全コマンドの詳細記録
+- 🎨 [ワークフロー図](docs/workflow.md) - Mermaid図での可視化
+- ⚖️ [比較レポート](docs/comparison.md) - Submodule vs Subtree 詳細比較
+- 📊 [プロジェクトサマリー](docs/summary.md) - 完了レポートとまとめ
 
-## セットアップ
+## クイックスタート
 
-詳細は `scripts/setup.sh` を参照してください。
+### このプロジェクトをクローン
+
+```bash
+# Submodule を含めてクローン
+git clone --recurse-submodules <このリポジトリのURL>
+
+# または、通常のクローン後に submodule を初期化
+git clone <このリポジトリのURL>
+git submodule update --init --recursive
+```
+
+### プロジェクトを再現
+
+```bash
+# セットアップスクリプトで新規作成
+./scripts/setup.sh
+```
+
+### Docker イメージをビルド
+
+```bash
+cd projects
+
+# Python Lambda (Submodule App)
+docker build -t submodule-app -f submodule-app/Dockerfile .
+
+# TypeScript Lambda (Subtree App)
+docker build -t subtree-app -f subtree-app/Dockerfile .
+```
+
+### デプロイ（オプション）
+
+CDK for Terraform を使用してデプロイ:
+
+```bash
+cd cdktf
+npm install
+cdktf deploy
+```
+
+詳細は [cdktf/README.md](cdktf/README.md) を参照してください。
+
+## 📚 学習リソース
+
+### 推奨閲覧順序
+
+1. [プロジェクトサマリー](docs/summary.md) - プロジェクト全体の概要
+2. [ワークフロー図](docs/workflow.md) - 視覚的な理解
+3. [比較レポート](docs/comparison.md) - 詳細な比較と推奨事項
+4. [実行コマンドログ](docs/commands.md) - 実装の詳細
+
+## 🎯 主な発見
+
+**Git Submodule**: 大規模プロジェクト向け
+- ✅ 完全な独立性
+- ✅ 厳密なバージョン管理
+- ❌ セットアップが複雑
+
+**Git Subtree**: 小〜中規模プロジェクト向け
+- ✅ シンプルな運用
+- ✅ 初心者に優しい
+- ❌ リポジトリサイズ増加
+
+詳細は [比較レポート](docs/comparison.md) を参照してください。
