@@ -1,0 +1,11 @@
+{
+  "app_name": "git-demo-lambda",
+  "version": "1.0.0",
+  "region": "us-east-1",
+  "common_settings": {
+    "timeout_seconds": 30,
+    "memory_mb": 256,
+    "log_level": "INFO"
+  },
+  "message": "This is a shared configuration file used by both Python and TypeScript Lambda functions"
+}
