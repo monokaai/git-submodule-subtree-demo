@@ -1,0 +1,3 @@
+[submodule "projects/submodule-app"]
+	path = projects/submodule-app
+	url = /tmp/demo-repos/submodule-app
