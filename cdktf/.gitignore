@@ -1,0 +1,29 @@
+# CDKTF
+.gen/
+cdktf.out/
+terraform.*.tfstate*
+.terraform/
+
+# Node.js
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# TypeScript
+*.js
+*.js.map
+*.d.ts
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraformrc
+terraform.rc
