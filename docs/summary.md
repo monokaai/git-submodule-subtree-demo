@@ -1,5 +1,18 @@
 # プロジェクト完了サマリー
 
+## 🌐 GitHub リポジトリ
+
+このプロジェクトは GitHub で公開されています：
+
+- **ルートリポジトリ**: [monokaai/git-submodule-subtree-demo](https://github.com/monokaai/git-submodule-subtree-demo)
+- **Submodule App** (Python Lambda): [monokaai/demo-submodule-app](https://github.com/monokaai/demo-submodule-app)
+- **Subtree App** (TypeScript Lambda): [monokaai/demo-subtree-app](https://github.com/monokaai/demo-subtree-app)
+
+```bash
+# クローン方法
+git clone --recurse-submodules https://github.com/monokaai/git-submodule-subtree-demo.git
+```
+
 ## 📦 作成したもの
 
 このデモプロジェクトでは、git submodule と git subtree の実践的な運用を検証しました。

@@ -270,3 +270,162 @@ git log --oneline --graph --all
 8. ⏳ 動作確認
 
 続きは次のセクションに記載されます。
+
+---
+
+## 🌐 リモートリポジトリへのプッシュ
+
+### [Step 16] Submodule-app リポジトリを GitHub に作成
+
+**意図**: Python Lambda (submodule-app) を GitHub リモートリポジトリに公開
+
+```bash
+cd /tmp/demo-repos/submodule-app
+gh repo create demo-submodule-app \
+  --public \
+  --source=. \
+  --description="Python Lambda managed via git submodule" \
+  --push
+```
+
+**結果**: https://github.com/monokaai/demo-submodule-app が作成されました
+
+### [Step 17] Subtree-app リポジトリを GitHub に作成
+
+**意図**: TypeScript Lambda (subtree-app) を GitHub リモートリポジトリに公開
+
+```bash
+cd /tmp/demo-repos/subtree-app
+gh repo create demo-subtree-app \
+  --public \
+  --source=. \
+  --description="TypeScript Lambda managed via git subtree" \
+  --push
+```
+
+**結果**: https://github.com/monokaai/demo-subtree-app が作成されました
+
+### [Step 18] ルートリポジトリの .gitmodules を更新
+
+**意図**: Submodule の URL をローカルパスから GitHub URL に変更
+
+```bash
+cd /Users/monokaai/work/hq/projects/git_submodule_subtree_demo
+
+# .gitmodules を編集
+# url = /tmp/demo-repos/submodule-app
+# ↓
+# url = https://github.com/monokaai/demo-submodule-app.git
+```
+
+### [Step 19] Submodule のリモート URL を同期
+
+**意図**: Submodule のリモート設定を更新
+
+```bash
+git submodule sync
+
+cd projects/submodule-app
+git remote set-url origin https://github.com/monokaai/demo-submodule-app.git
+git remote -v
+cd ../..
+
+git add .gitmodules
+git commit -m "update: submoduleのURLをGitHubリモートに変更"
+```
+
+**結果**: Submodule が GitHub リポジトリを参照するようになりました
+
+### [Step 20] ルートリポジトリを GitHub に作成
+
+**意図**: ルートリポジトリを GitHub に公開
+
+```bash
+gh repo create git-submodule-subtree-demo \
+  --public \
+  --source=. \
+  --description="Demo project comparing git submodule and git subtree workflows with Lambda functions" \
+  --push
+```
+
+**結果**: https://github.com/monokaai/git-submodule-subtree-demo が作成されました
+
+---
+
+## 🎉 完成！
+
+すべてのリポジトリが GitHub に公開されました：
+
+### 作成されたリポジトリ
+
+1. **ルートリポジトリ**
+   - URL: https://github.com/monokaai/git-submodule-subtree-demo
+   - 説明: git submodule/subtree 比較デモプロジェクト
+
+2. **Submodule App** (Python Lambda)
+   - URL: https://github.com/monokaai/demo-submodule-app
+   - 管理方法: git submodule
+
+3. **Subtree App** (TypeScript Lambda)
+   - URL: https://github.com/monokaai/demo-subtree-app
+   - 管理方法: git subtree
+
+### クローン方法
+
+```bash
+# Submodule を含めてクローン
+git clone --recurse-submodules https://github.com/monokaai/git-submodule-subtree-demo.git
+
+# または、通常のクローン後に submodule を初期化
+git clone https://github.com/monokaai/git-submodule-subtree-demo.git
+cd git-submodule-subtree-demo
+git submodule update --init --recursive
+```
+
+### Subtree の更新コマンド（リモート使用版）
+
+```bash
+# Subtree から更新を pull
+git subtree pull \
+  --prefix=projects/subtree-app \
+  https://github.com/monokaai/demo-subtree-app.git \
+  main --squash
+
+# Subtree への変更を push
+git subtree push \
+  --prefix=projects/subtree-app \
+  https://github.com/monokaai/demo-subtree-app.git \
+  main
+```
+
+### エイリアス設定（推奨）
+
+```bash
+# Subtree 操作のエイリアス
+git config alias.stpull 'subtree pull --prefix=projects/subtree-app https://github.com/monokaai/demo-subtree-app.git main --squash'
+git config alias.stpush 'subtree push --prefix=projects/subtree-app https://github.com/monokaai/demo-subtree-app.git main'
+
+# 使用方法
+git stpull
+git stpush
+```
+
+---
+
+## 📊 最終的なリポジトリ構成
+
+```
+GitHub
+├── monokaai/git-submodule-subtree-demo  (ルート)
+│   ├── projects/utils/                   (ルートで管理)
+│   ├── projects/submodule-app/           (submodule参照)
+│   └── projects/subtree-app/             (subtreeコピー)
+│
+├── monokaai/demo-submodule-app           (独立リポジトリ)
+│   └── Python Lambda
+│
+└── monokaai/demo-subtree-app             (独立リポジトリ)
+    └── TypeScript Lambda
+```
+
+このプロジェクトは完全に GitHub で公開され、誰でもクローンして学習できるようになりました！
