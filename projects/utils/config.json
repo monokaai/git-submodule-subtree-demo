@@ -1,11 +1,14 @@
 {
   "app_name": "git-demo-lambda",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "region": "us-east-1",
   "common_settings": {
-    "timeout_seconds": 30,
-    "memory_mb": 256,
-    "log_level": "INFO"
+    "timeout_seconds": 60,
+    "memory_mb": 512,
+    "log_level": "DEBUG",
+    "enable_tracing": true
   },
-  "message": "This is a shared configuration file used by both Python and TypeScript Lambda functions"
+  "message": "This is a shared configuration file used by both Python and TypeScript Lambda functions",
+  "updated_at": "2025-11-11",
+  "updated_reason": "共通設定を更新: タイムアウト延長、メモリ増量、トレーシング有効化"
 }
