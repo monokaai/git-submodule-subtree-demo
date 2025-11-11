@@ -69,6 +69,28 @@ git submodule update --init --recursive
 ./scripts/setup.sh
 ```
 
+### テストを実行
+
+各Lambda関数のテストを実行できます：
+
+```bash
+# Python Lambda (Submodule App) のテスト
+cd projects/submodule-app
+pixi install
+pixi run test           # すべてのテスト
+pixi run test-unit      # Unit テストのみ
+pixi run test-e2e       # E2E テストのみ
+pixi run test-cov       # カバレッジ付き
+
+# TypeScript Lambda (Subtree App) のテスト
+cd projects/subtree-app
+pnpm install
+pnpm test               # すべてのテスト
+pnpm run test:unit      # Unit テストのみ
+pnpm run test:e2e       # E2E テストのみ
+pnpm run test:coverage  # カバレッジ付き
+```
+
 ### Docker イメージをビルド
 
 ```bash
