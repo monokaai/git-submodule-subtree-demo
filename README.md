@@ -54,10 +54,11 @@ git_submodule_subtree_demo/  (ルートリポジトリ)
 
 ```bash
 # Submodule を含めてクローン
-git clone --recurse-submodules <このリポジトリのURL>
+git clone --recurse-submodules https://github.com/monokaai/git-submodule-subtree-demo.git
 
 # または、通常のクローン後に submodule を初期化
-git clone <このリポジトリのURL>
+git clone https://github.com/monokaai/git-submodule-subtree-demo.git
+cd git-submodule-subtree-demo
 git submodule update --init --recursive
 ```
 
