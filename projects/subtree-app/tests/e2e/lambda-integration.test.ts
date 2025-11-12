@@ -64,7 +64,9 @@ describe('Lambda E2E Integration Tests', () => {
             sourceIp: '127.0.0.1',
             user: null,
             userAgent: 'Mozilla/5.0',
-            userArn: null
+            userArn: null,
+            vpcId: null,
+            vpceId: null
           },
           domainName: 'test.execute-api.us-east-1.amazonaws.com',
           domainPrefix: 'test',

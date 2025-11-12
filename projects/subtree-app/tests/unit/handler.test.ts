@@ -5,7 +5,7 @@ import { Context, APIGatewayProxyEvent } from 'aws-lambda';
 import { handler } from '../../lambda/index';
 
 // モック関数
-jest.mock('../../lambda/../utils/helpers', () => ({
+jest.mock('../utils/helpers', () => ({
   loadConfig: jest.fn(() => ({
     app_name: 'test-app',
     version: '1.0.0',
@@ -157,7 +157,7 @@ describe('Lambda Handler', () => {
 
   describe('異常系', () => {
     it('エラーが発生した場合に500を返す', async () => {
-      const { loadConfig } = require('../../lambda/../utils/helpers');
+      const { loadConfig } = require('../utils/helpers');
       loadConfig.mockImplementationOnce(() => {
         throw new Error('Config load error');
       });
@@ -168,7 +168,7 @@ describe('Lambda Handler', () => {
     });
 
     it('エラーメッセージが含まれる', async () => {
-      const { loadConfig } = require('../../lambda/../utils/helpers');
+      const { loadConfig } = require('../utils/helpers');
       loadConfig.mockImplementationOnce(() => {
         throw new Error('Test error');
       });
@@ -183,7 +183,7 @@ describe('Lambda Handler', () => {
 
   describe('共通ユーティリティの利用', () => {
     it('loadConfigが呼ばれる', async () => {
-      const { loadConfig } = require('../../lambda/../utils/helpers');
+      const { loadConfig } = require('../utils/helpers');
 
       await handler(mockEvent, mockContext);
 
@@ -191,7 +191,7 @@ describe('Lambda Handler', () => {
     });
 
     it('logInfoが呼ばれる', async () => {
-      const { logInfo } = require('../../lambda/../utils/helpers');
+      const { logInfo } = require('../utils/helpers');
 
       await handler(mockEvent, mockContext);
 
@@ -199,7 +199,7 @@ describe('Lambda Handler', () => {
     });
 
     it('formatResponseが呼ばれる', async () => {
-      const { formatResponse } = require('../../lambda/../utils/helpers');
+      const { formatResponse } = require('../utils/helpers');
 
       await handler(mockEvent, mockContext);
 

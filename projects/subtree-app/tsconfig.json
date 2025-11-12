@@ -18,6 +18,6 @@
     },
     "types": ["node", "jest"]
   },
-  "include": ["lambda/**/*.ts", "tests/**/*.ts"],
+  "include": ["lambda/**/*.ts", "tests/**/*.ts", "../utils/**/*.ts"],
   "exclude": ["node_modules", "dist", "coverage"]
 }
